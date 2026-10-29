@@ -3,9 +3,6 @@ const express = require('express');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
-const TOKEN = "MTUzMTgyNzY2NTg1Njc1Nzc5MA.G3sfqn.mfwVWFym3VbEkL2Y2Yv0-I5sf8TOMBODNMzsbo";
-const CLIENT_ID = "1563624728646783027";
-
 const adapter = new FileSync('database.json');
 const db = low(adapter);
 db.defaults({ keys: [], users: [] }).write();
@@ -60,8 +57,8 @@ app.listen(PORT, () => console.log(`[API] Servidor Gab Storm rodando na porta ${
 
 // Bot do Discord
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const TOKEN = "SEU_TOKEN_DO_BOT_AQUI";
-const CLIENT_ID = "SEU_CLIENT_ID_AQUI";
+const TOKEN = "MTUzMTgyNzY2NTg1Njc1Nzc5MA.G3sfqn.mfwVWFym3VbEkL2Y2Yv0-I5sf8TOMBODNMzsbo";
+const CLIENT_ID = "1563624728646783027";
 
 client.once('ready', async () => {
     console.log(`[BOT] ${client.user.tag} online!`);
