@@ -57,7 +57,7 @@ app.listen(PORT, () => console.log(`[API] Servidor Gab Storm rodando na porta ${
 
 // Bot do Discord
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const TOKEN = "MTUzMTgyNzY2NTg1Njc1Nzc5MA.G3sfqn.mfwVWFym3VbEkL2Y2Yv0-I5sf8TOMBODNMzsbo";
+const TOKEN = "MTU2MzYyNDcyODY0Njc4MzAyNw.GEjd6E._g_ejVREPUbwTqj7dyXbDSI-RP5mGTLLuSG5oM";
 const CLIENT_ID = "1563624728646783027";
 
 client.once('ready', async () => {
