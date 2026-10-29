@@ -52,12 +52,11 @@ app.post('/api/auth', (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => console.log(`[API] Servidor Gab Storm rodando na porta ${PORT}`));
 
 // Bot do Discord
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const TOKEN = "MTU2MzYyNDcyODY0Njc4MzAyNw.GEjd6E._g_ejVREPUbwTqj7dyXbDSI-RP5mGTLLuSG5oM";
 const CLIENT_ID = "1563624728646783027";
 
 client.once('ready', async () => {
@@ -69,8 +68,13 @@ client.once('ready', async () => {
             .addIntegerOption(opt => opt.setName('dias').setDescription('Dias de acesso').setRequired(true))
     ].map(cmd => cmd.toJSON());
 
-    const rest = new REST({ version: '10' }).setToken(TOKEN);
-    await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
+    const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+    try {
+        await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
+        console.log('[BOT] Comandos Slash registrados com sucesso!');
+    } catch (error) {
+        console.error('[BOT] Erro ao registrar comandos:', error);
+    }
 });
 
 client.on('interactionCreate', async interaction => {
@@ -95,4 +99,5 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-client.login(TOKEN);
+// Faz o login do bot utilizando a variável de ambiente segura do Render
+client.login(process.env.DISCORD_TOKEN);
