@@ -56,6 +56,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`[API] Servidor Gab Storm rodando na porta ${PORT}`));
 
 // Bot do Discord
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const TOKEN = "MTU2MzYyNDcyODY0Njc4MzAyNw.GEjd6E._g_ejVREPUbwTqj7dyXbDSI-RP5mGTLLuSG5oM";
 const CLIENT_ID = "1563624728646783027";
 
