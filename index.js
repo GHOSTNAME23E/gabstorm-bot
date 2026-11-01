@@ -117,3 +117,16 @@ initDB().then(() => {
     app.listen(PORT, () => console.log(`[API] Servidor Gab Storm rodando na porta ${PORT}`));
     client.login(process.env.DISCORD_TOKEN);
 });
+
+
+// Inicia a API Web
+initDB().then(() => {
+    app.listen(PORT, () => console.log(`[API] Servidor Gab Storm rodando na porta ${PORT}`));
+}).catch(err => console.error('[API] Erro ao iniciar banco:', err));
+
+// Inicia o Bot do Discord diretamente
+client.login(process.env.DISCORD_TOKEN).then(() => {
+    console.log('[BOT] Tentativa de login efetuada com sucesso!');
+}).catch(err => {
+    console.error('[BOT] Erro ao fazer login no Discord (Verifique o Token):', err);
+});
