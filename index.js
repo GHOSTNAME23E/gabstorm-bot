@@ -112,17 +112,7 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-// Inicializa o banco e sobe o servidor/bot uma única vez
-initDB().then(() => {
-    app.listen(PORT, () => console.log(`[API] Servidor Gab Storm rodando na porta ${PORT}`));
-    client.login(process.env.DISCORD_TOKEN).then(() => {
-        console.log('[BOT] Bot conectado com sucesso!');
-    }).catch(err => {
-        console.error('[BOT] Erro ao fazer login no Discord:', err);
-    });
-});
-
-// Inicializa o banco, o servidor Express e o Bot do Discord uma única vez
+// Inicializa o banco, o servidor Express e o Bot do Discord apenas uma vez
 initDB().then(() => {
     app.listen(PORT, () => console.log(`[API] Servidor Gab Storm rodando na porta ${PORT}`));
     
