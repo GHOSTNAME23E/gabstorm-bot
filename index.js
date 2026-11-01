@@ -1,3 +1,5 @@
+// Teste de força de login imediato
+console.log('[DEBUG] O arquivo index.js começou a ser executado!');
 const { Client, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, REST, Routes } = require('discord.js');
 const express = require('express');
 const { Low } = require('lowdb');
